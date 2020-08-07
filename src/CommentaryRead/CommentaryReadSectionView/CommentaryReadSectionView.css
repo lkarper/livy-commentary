@@ -1,0 +1,12 @@
+.CommentaryReadSectionView__container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.CommentaryReadSectionView__section {
+    width: 50%;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid black;
+}
