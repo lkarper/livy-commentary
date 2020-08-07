@@ -2,13 +2,21 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import Header from './Header/Header';
 import CommentaryHome from './CommentaryHome/CommentaryHome';
+import CommentaryRead from './CommentaryRead/CommentaryRead';
 
-function App() {
+const App = (props) => {
   return (
     <div className="App">
       <Header />
       <main>
-        <CommentaryHome />
+        <Route 
+          exact path="/"
+          component={CommentaryHome}
+        />
+        <Route 
+          path='/commentary-read'
+          component={CommentaryRead}
+        />
       </main>
     </div>
   );

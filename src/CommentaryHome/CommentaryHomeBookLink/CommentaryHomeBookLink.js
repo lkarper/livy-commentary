@@ -8,8 +8,18 @@ const CommentaryHomeBookLink = (props) => {
 
     return (
         <div>
-            <Link>Book {book.book_number}</Link>
-            {book.chapters.map(chapter => <CommentaryHomeChapterLink key={chapter.chapter_number} chapter={chapter} />)}
+            <Link 
+                to={`/commentary-read?book=${book.book_number}`}
+            >
+                Book {book.book_number}
+            </Link>
+            {book.chapters.map(chapter => 
+                <CommentaryHomeChapterLink 
+                    key={chapter.chapter_number} 
+                    book_number={book.book_number} 
+                    chapter={chapter} 
+                />)
+            }
         </div>
     );
 }
