@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import CommentaryContext from '../context/CommentaryContext';
 import CommentaryReadSectionView from './CommentaryReadSectionView/CommentaryReadSectionView';
 import CommentaryReadChapter from './CommentaryReadChapter/CommentaryReadChapter';
+import CommentaryReadNavButtons from './CommentaryReadNavButtons/CommentaryReadNavButtons';
+import './CommentaryRead.css';
 
 const CommentaryRead = (props) => {
 
@@ -33,9 +35,6 @@ const CommentaryRead = (props) => {
     }, [props, search, setSearch]);
 
     useEffect(() => {
-        
-        
-
         if (search) {
             search
                 .slice(1)
@@ -116,7 +115,9 @@ const CommentaryRead = (props) => {
                 <header>
                     <h2>{bookLink}{' > '}{chapterLink}{' > '}§{section.section_number}</h2>
                 </header>
-                <CommentaryReadSectionView 
+                <CommentaryReadSectionView
+                    bookNumber={bookNumber}
+                    chapterNumber={chapterNumber} 
                     section={section}   
                 />
             </section>
@@ -129,6 +130,8 @@ const CommentaryRead = (props) => {
                 </header>
                 <CommentaryReadChapter 
                     chapter={chapter}
+                    bookNumber={bookNumber}
+                    chapterNumber={chapterNumber} 
                 />
             </section>
         );
@@ -142,6 +145,8 @@ const CommentaryRead = (props) => {
                     <CommentaryReadChapter 
                         key={chapter.chapter_number}
                         chapter={chapter}
+                        bookNumber={bookNumber}
+                        chapterNumber={chapter.chapter_number} 
                     />)
                 }
             </section>
@@ -150,14 +155,18 @@ const CommentaryRead = (props) => {
 
     if (book) {
         return (
-            <section className='CommentaryRead__container section'>
+            <section className='section'>
+                <CommentaryReadNavButtons 
+                    book={book} 
+                    search={search}
+                />
                 {htmlToDisplay}
             </section>
         );
     }
 
     return (
-        <section className='CommentaryRead__container section'>
+        <section className='section'>
             <p>Loading...</p>
         </section>
     );

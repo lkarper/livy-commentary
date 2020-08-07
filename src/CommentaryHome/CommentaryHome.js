@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import CommentaryContext from '../context/CommentaryContext';
 import CommentaryHomeBookLink from './CommentaryHomeBookLink/CommentaryHomeBookLink';
+import './CommentaryHome.css';
 
 const CommentaryHome = (props) => {
 
@@ -9,7 +9,7 @@ const CommentaryHome = (props) => {
     const { data } = context;
 
     return (
-        <div>
+        <div className='CommentaryHome__book-link-container'>
             {data.map(book => <CommentaryHomeBookLink key={book.book_number} book={book} />)}
         </div>
     );

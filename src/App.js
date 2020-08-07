@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Header from './Header/Header';
 import CommentaryHome from './CommentaryHome/CommentaryHome';
 import CommentaryRead from './CommentaryRead/CommentaryRead';
+import './App.css';
 
 const App = (props) => {
   return (

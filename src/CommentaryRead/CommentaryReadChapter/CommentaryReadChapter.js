@@ -2,7 +2,7 @@ import React from 'react';
 import CommentaryReadSectionView from '../CommentaryReadSectionView/CommentaryReadSectionView';
 
 const CommentaryReadChapter = (props) => {
-   const { chapter } = props;
+   const { chapter, bookNumber, chapterNumber } = props;
 
    return (
        <>
@@ -11,7 +11,9 @@ const CommentaryReadChapter = (props) => {
             {chapter.sections.map(section => 
                     <CommentaryReadSectionView 
                         key={section.section_number} 
-                        section={section} 
+                        section={section}
+                        bookNumber={bookNumber}
+                        chapterNumber={chapterNumber}  
                     />)
             }
        </>
