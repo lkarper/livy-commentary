@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CommentaryContext from '../context/CommentaryContext';
-import CommentaryHomeBookLink from '../CommentaryHomeBookLink/CommentaryHomeBookLink';
+import CommentaryHomeBookLink from './CommentaryHomeBookLink/CommentaryHomeBookLink';
 
 const CommentaryHome = (props) => {
 
