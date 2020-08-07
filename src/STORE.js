@@ -236,7 +236,7 @@ export default [
                 chapter_number: 2,
                 chapter_title: 'Hamilcar’s War, Hasdrubal, and an Assassination',
                 intro_paragraphs: [
-                    'Hamilcar achieves significant territorial gains in Spain and in Africa after Rome’s victory in the First Punic War (237 - 226 BCE), but further progress is stymied by his death. In wake of Hamilar’s death, Hasdrubal, Hamilcar’s adopted son-in-law and alleged lover, takes control of the Barcid faction and expands Carthaginian gains through shrewd diplomacy, but is assassinated by the retainer of a foreign king. Finally, the terms of a revised treaty with Rome (226 BCE), which serve as a flashpoint for the rest of the book, are introduced.',    
+                    'Hamilcar achieves significant territorial gains in Spain and in Africa after Rome’s victory in the First Punic War (237 - 226 BCE), but further progress is stymied by his death. In wake of Hamilar’s death, Hasdrubal, Hamilcar’s adopted son-in-law and alleged lover, takes control of the Barcid faction and expands Carthaginian gains through shrewd diplomacy, but is assassinated by the retainer of a foreign king. Finally, the terms of a revised treaty with Rome (226 BCE), which serve as a flashpoint for the rest of the book, are introduced.',
                 ],
                 sections: [
                     {
@@ -315,7 +315,7 @@ export default [
                         section_number: 4,
                         latin: 'uti ferunt, primo Hamilcari conciliatus, gener inde ob aliam indolem profecto animi adscitus et, quia gener erat, factionis Barcinae opibus, quae apud milites plebemque plus quam modicae erant, haud sane uoluntate principum, in imperio positus.',
                         comments: [
-                            {                            
+                            {
                                 tag: 'uti ferunt',
                                 comment: 'Livy often employs fero to denote the relating of a story or report with a plural subject to refer to unspecified authors/Roman mythical traditions.',
                                 links: {},
@@ -456,7 +456,7 @@ export default [
                                 links: {},
                             },
                         ]
-                    }, 
+                    },
                     {
                         section_number: 4,
                         latin: `cum admiratione tam ancipitis sententiae in se omnes conuertisset, 'florem aetatis' inquit, 'Hasdrubal, quem ipse patri Hannibalis fruendum praebuit, iusto iure eum a filio repeti censet; nos tamen minime decet iuuentutem nostram pro militari rudimento adsuefacere libidini praetorum.`,
@@ -703,7 +703,7 @@ export default [
                 chapter_number: 5,
                 chapter_title: 'The Conquest of Iberia and the Battle of the River Tagus',
                 intro_paragraphs: [
-                    'Hannibal makes ready for war on Rome and reasons that an attack on the neural city of Saguntum in Iberia will provoke the Romans. Hoping to seem like he was forced into a conflict with Saguntum, he launches a campaign on all Iberian peoples who border Saguntum. He captures Cartala, the chief city of the Olcades. After wintering in Carthago Nova, Hannibal makes war against the Vaccaei, who unite with Olcaden exiles. The combined forces outnumber Hannibal and meet him at the River Tagus. There Hannibal lays a trap and easily defeats the Iberians.',
+                    'Hannibal attempts to incite Romans to war by launching a campaign against a number of tribes near the Ebro River.',
                 ],
                 sections: [
                     {
