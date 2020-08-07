@@ -290,7 +290,7 @@ export default [
                                 links: {
                                     link_1: {
                                         url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-589.html',
-                                        tag: 'A&G §589'
+                                        title: 'A&G §589'
                                     }
                                 },
                             },
