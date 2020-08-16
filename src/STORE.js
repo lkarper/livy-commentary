@@ -39,7 +39,7 @@ export default [
                                 comment: 'subjunctive main verb in subordinate clause within indirect discourse (link_1)',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-577.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=577',
                                         title: 'A&G §577',
                                     },
                                 },
@@ -75,7 +75,7 @@ export default [
                                 comment: `datives of advantage (link_1) with ipsis functioning as an intensifying pronoun (“in and of itself”).`,
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-577.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=234',
                                         title: 'A&G §234',
                                     },
                                 },
@@ -121,8 +121,8 @@ export default [
                                 comment: 'imperfect subjunctives in a quod clause of alleged reason(link_1); introduces indirect statement.',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/grammar/latin/causal-clauses',
-                                        title: 'A&G 540'
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=540',
+                                        title: 'A&G §540'
                                     },
                                 },
                             },
@@ -152,7 +152,7 @@ export default [
                                 comment: 'novem is indeclinable, so it is here in the genitive modifying annorum. Both are genitives of quality (link_1).',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-345.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=345',
                                         title: 'A&G §345',
                                     },
                                 },
@@ -167,7 +167,7 @@ export default [
                                 comment: 'cum temporal clause (link_1); subordinate clause in indirect statement usually take a subjunctive verb.',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-545.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=545',
                                         title: 'A&G §545',
                                     },
                                 },
@@ -177,7 +177,7 @@ export default [
                                 comment: 'future active participle modifying the subject of sacrifaceret, Hamilcar and expressing purpose (link_1).',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-499.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=499',
                                         title: 'A&G §499',
                                     },
                                 },
@@ -187,7 +187,7 @@ export default [
                                 comment: 's.c. esse; still in indirect discourse introduced by fama est with Hannibalem as the subject of both. Altaribus is in the dative as the compound admotum takes the dative. (link_1)',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-370.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=370',
                                         title: 'A&G §370'
                                     },
                                 },
@@ -213,7 +213,7 @@ export default [
                                 comment: 'genitive of quality (link_1).',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-345.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=345',
                                         title: 'A&G §345',
                                     },
                                 },
@@ -289,7 +289,7 @@ export default [
                                 comment: 'past contrary to fact conditional within indirect discourse, featuring a pluperfect subjunctive in the apodosis (if-clause) and future infinitive (i.e. the sentence’s main verb with Poenos as accusative subject) in the protasis (then-clause): “If he had lived longer…they would have” (link_1)',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-589.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=589',
                                         title: 'A&G §589'
                                     }
                                 },
@@ -471,7 +471,7 @@ export default [
                                 comment: 'a gerundive expressing purpose (link_1), agreeing with florem.',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-500.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=500',
                                         title: 'A&G §500.4'
                                     },
                                 },
@@ -644,7 +644,7 @@ export default [
                                 comment: 'notice the lack of coordinating conjunctions, a literary technique known as parataxis (link_1).',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-268.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=268',
                                         title: 'A&G §268',
                                     },
                                 },
@@ -659,7 +659,7 @@ export default [
                                 comment: 'relative clause of characteristic (link_1).',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-535.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=535',
                                         title: 'A&G §535a'
                                     },
                                 },
@@ -747,8 +747,8 @@ export default [
                                 comment: 'quibus is a connecting relative (link_1).',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/grammar/latin/relative-pronouns',
-                                        title: 'A&G 303 2',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=303',
+                                        title: 'A&G §303 2',
                                     },
                                 },
                             },
@@ -768,8 +768,8 @@ export default [
                                 comment: 'connecting relative (link_1)',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/grammar/latin/relative-pronouns',
-                                        title: 'A&G 303 2'
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=303',
+                                        title: 'A&G §303 2'
                                     },
                                 },
                             },
@@ -874,7 +874,7 @@ export default [
                                 comment: 'i.e. quippe in quo, “since on the riverbed” (Walsh 1985 131).  c.f. link_1. E. for more on the equivalent clause and its expression of causation.',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-535.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=535',
                                         title: 'A&G §535'
                                     },
                                 },
@@ -915,7 +915,7 @@ export default [
                                 comment: 'c.f. link_1',
                                 links: {
                                     link_1: {
-                                        url: 'http://dcc.dickinson.edu/allen-greenough/Chapters/Chapter-550.html',
+                                        url: 'http://dcc.dickinson.edu/grammar/latin/category-search?field_gl_section_number_value=550',
                                         title: 'A&G §550'
                                     },
                                 },
