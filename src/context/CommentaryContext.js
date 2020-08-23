@@ -1,17 +1,28 @@
-import React, { useState, createContext} from 'react';
-import STORE from '../STORE';
+import React, { useState, useEffect, createContext} from 'react';
+import CommentaryService from '../services/commentary-service';
 
 const CommentaryContext = createContext({
-    data: [],
+    homePageLinkNumbers: [],
 });
 
 export default CommentaryContext;
 
 export const CommentaryProvider = (props) => {
-    const [data, setData] = useState(STORE);
+
+    const [homePageLinkNumbers, setHomePageLinkNumbers] = useState([]);
+
+    useEffect(() => {
+        CommentaryService.getHomePageLinkNumbers()
+            .then(numbers => {
+                setHomePageLinkNumbers(numbers)
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, [props]);
 
     const value = {
-        data,
+        homePageLinkNumbers
     };
 
     return (

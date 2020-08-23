@@ -10,7 +10,7 @@ const CommentaryHomeChapterLink = (props) => {
         <div className='CommentaryHomeChapterLink__chapter-link-container'>
             <h3>
                 <Link 
-                    to={`/commentary-read?book=${book_number}&chapter=${chapter.chapter_number}`}
+                    to={`/commentary-read/${chapter.chapter_number}`}
                 >
                     Chapter {chapter.chapter_number}: {chapter.chapter_title}
                 </Link>

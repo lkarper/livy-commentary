@@ -6,11 +6,11 @@ import './CommentaryHome.css';
 const CommentaryHome = (props) => {
 
     const context = useContext(CommentaryContext);
-    const { data } = context;
+    const { homePageLinkNumbers } = context;
 
     return (
         <div className='CommentaryHome__book-link-container'>
-            {data.map(book => <CommentaryHomeBookLink key={book.book_number} book={book} />)}
+            {homePageLinkNumbers.map(book => <CommentaryHomeBookLink key={book.book_number} book={book} />)}
         </div>
     );
 }

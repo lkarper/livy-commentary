@@ -5,13 +5,12 @@ import CommentaryReadSectionView from './CommentaryReadSectionView/CommentaryRea
 import CommentaryReadChapter from './CommentaryReadChapter/CommentaryReadChapter';
 import CommentaryReadNavButtons from './CommentaryReadNavButtons/CommentaryReadNavButtons';
 import './CommentaryRead.css';
+import CommentaryService from '../services/commentary-service';
 
 const CommentaryRead = (props) => {
 
     const context = useContext(CommentaryContext);
-    const { data } = context;
 
-    const [search, setSearch] = useState('');
     const [bookNumber, setBookNumber] = useState();
     const [chapterNumber, setChapterNumber] = useState();
     const [sectionNumber, setSectionNumber] = useState();
@@ -22,72 +21,65 @@ const CommentaryRead = (props) => {
     const [chapterNotFound, setChapterNotFound] = useState(false);
     const [sectionNotFound, setSectionNotFound] = useState(false);
 
-    useEffect(() => {
-        if (search !== props.location.search) {
-            setBookNumber('');
-            setChapterNumber('');
-            setSectionNumber('');
-            setBook('');
-            setChapter('');
-            setSection('');
-            setSearch(props.location.search);
-        }
-    }, [props, search, setSearch]);
+    const { location } = props.match.params;
 
     useEffect(() => {
-        if (search) {
-            search
-                .slice(1)
-                .split('&')
-                .forEach(query => {
-                    const param = query.split('=')[0];
-                    const value = query.split('=')[1];
-                    if (param === 'book') {
-                        setBookNumber(parseInt(value));
-                    }
-                    if (param === 'chapter') {
-                        setChapterNumber(parseInt(value))
-                    }
-                    if (param === 'section') {
-                        setSectionNumber(parseInt(value));
-                    }                    
-                });
+        const locationArray = location.split('-');
+
+        if (locationArray.length === 3) {
+            setBookNumber(locationArray[0]);
+            setChapterNumber(locationArray[1]);
+            setSectionNumber(locationArray[2]);
+        } else if (locationArray.length === 2) {
+            setBookNumber(locationArray[0]);
+            setChapterNumber(locationArray[1]);
+            setSectionNumber('');
+        } else {
+            setBookNumber(locationArray[0]);
+            setChapterNumber('');
+            setSectionNumber('');
         }
-    }, [search, setBookNumber, setChapterNumber, setSectionNumber]);
+    }, [location])
 
     useEffect(() => {
         if (bookNumber) {
-            const foundBook = data.find(bk => bk.book_number === bookNumber);
-            if (foundBook) {
-                setBook(foundBook);
-                setBookNotFound(false);
-            } else {
-                setBookNotFound(true);
-            }
+            CommentaryService.getCommentaryByBook(bookNumber)
+                .then(book => {
+                    setBook(book);
+                    setBookNotFound(false);
+                })
+                .catch(error => {
+                    console.log(error);
+                    setBookNotFound(true);
+                });
         }
     }, [bookNumber, setBook, setBookNotFound]);
 
     useEffect(() => {
         if (chapterNumber && book) {
-            const foundChapter = book.chapters.find(ch => ch.chapter_number === chapterNumber);
+            const foundChapter = book.chapters.find(ch => ch.chapter_number === `${bookNumber}-${chapterNumber}`);
             if (foundChapter) {
                 setChapter(foundChapter);
                 setChapterNotFound(false);
             } else {
                 setChapterNotFound(true);
             }
+        } else {
+            setChapter(null);
         }
     }, [bookNumber, chapterNumber, book, setChapter, setChapterNotFound]);
 
     useEffect(() => {
         if (sectionNumber && chapter && book) {
-            const foundSection = chapter.sections.find(sec => sec.section_number === sectionNumber);
+            const foundSection = chapter.sections.find(sec => sec.section_number === `${bookNumber}-${chapterNumber}-${sectionNumber}`);
             if (foundSection) {
                 setSection(foundSection);
                 setSectionNotFound(false);
             } else {
                 setSectionNotFound(true);
             }
+        } else {
+            setSection(null);
         }
     }, [bookNumber, chapterNumber, sectionNumber, book, chapter, setSection, setSectionNotFound]);
 
@@ -95,7 +87,7 @@ const CommentaryRead = (props) => {
 
     const bookLink = (
         <Link 
-            to={`/commentary-read?book=${bookNumber}`}
+            to={`/commentary-read/${bookNumber}`}
         >
             Book {bookNumber}
         </Link>
@@ -103,7 +95,7 @@ const CommentaryRead = (props) => {
 
     const chapterLink = (
         <Link
-            to={`/commentary-read?book=${bookNumber}&chapter=${chapterNumber}`}
+            to={`/commentary-read/${bookNumber}-${chapterNumber}`}
         >
             Chapter {chapterNumber}
         </Link>
@@ -113,7 +105,7 @@ const CommentaryRead = (props) => {
         htmlToDisplay = (
             <section className='CommentaryRead__container section'>
                 <header>
-                    <h2>{bookLink}{' > '}{chapterLink}{' > '}§{section.section_number}</h2>
+                    <h2>{bookLink}{' > '}{chapterLink}{' > '}§{sectionNumber}</h2>
                 </header>
                 <CommentaryReadSectionView
                     bookNumber={bookNumber}
@@ -126,7 +118,7 @@ const CommentaryRead = (props) => {
         htmlToDisplay = (
             <section className='CommentaryRead__container section'>
                 <header>
-                    <h2>{bookLink}{' > '}Chapter {chapter.chapter_number}</h2>
+                    <h2>{bookLink}{' > '}Chapter {chapterNumber}</h2>
                 </header>
                 <CommentaryReadChapter 
                     chapter={chapter}
@@ -158,7 +150,7 @@ const CommentaryRead = (props) => {
             <section className='section'>
                 <CommentaryReadNavButtons 
                     book={book} 
-                    search={search}
+                    search={location}
                 />
                 {htmlToDisplay}
             </section>

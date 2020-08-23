@@ -11,7 +11,7 @@ const CommentaryHomeBookLink = (props) => {
         <div className='CommentaryHomeBookLink_book-link-container'>
             <h2>
                 <Link 
-                    to={`/commentary-read?book=${book.book_number}`}
+                    to={`/commentary-read/${book.book_number}`}
                 >
                     Book {book.book_number}
                 </Link>

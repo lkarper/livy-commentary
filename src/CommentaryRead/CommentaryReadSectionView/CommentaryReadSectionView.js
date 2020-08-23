@@ -4,18 +4,18 @@ import './CommentaryReadSectionView.css';
 
 const CommentaryReadSectionView = (props) => {
 
-    const { section, bookNumber, chapterNumber } = props;
+    const { section } = props;
 
     return (
         <div className='CommentaryReadSectionView__container'>
             <section className='CommentaryReadSectionView__section'>
-                <h3>{bookNumber}.{chapterNumber}.{section.section_number}</h3>
+                <h3>{section.section_number}</h3>
                 <p>{section.latin}</p>
             </section>
             <section className='CommentaryReadSectionView__section'>
                 <h3>Commentary and Notes</h3>
-                {section.comments.map((commentArray, i) => <CommentaryReadComment key={i} commentArray={commentArray} />)}
-                {section.comments.length === 0 && <p>No notes yet for this section.</p>}
+                {section.comments && section.comments.map((comment, i) => <CommentaryReadComment key={i} comment={comment} />)}
+                {!section.comments && <p>No notes yet for this section.</p>}
             </section>
         </div>
     );

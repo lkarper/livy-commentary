@@ -15,7 +15,7 @@ const App = (props) => {
           component={CommentaryHome}
         />
         <Route 
-          path='/commentary-read'
+          path='/commentary-read/:location'
           component={CommentaryRead}
         />
       </main>
