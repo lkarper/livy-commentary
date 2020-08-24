@@ -3,6 +3,7 @@ import CommentaryService from '../services/commentary-service';
 
 const CommentaryContext = createContext({
     homePageLinkNumbers: [],
+    addNewBook: () => {},
 });
 
 export default CommentaryContext;
@@ -21,8 +22,14 @@ export const CommentaryProvider = (props) => {
             });
     }, [props]);
 
+    const addNewBook = (newBook) => {
+        const newHomePageLinkNumbers = [...homePageLinkNumbers, newBook];
+        setHomePageLinkNumbers(newHomePageLinkNumbers);
+    }
+
     const value = {
-        homePageLinkNumbers
+        homePageLinkNumbers,
+        addNewBook,
     };
 
     return (
