@@ -16,6 +16,7 @@ const EditPage = (props) => {
     const [nextBook, setNextBookNumber] = useState();
     const [addNewBook, setAddNewBook] = useState(false);
     const [addNewChapter, setAddNewChapter] = useState(false);
+    const [showEditChapt, setShowEditChapt] = useState(false);
 
     const commNumbers = [...context.homePageLinkNumbers];
 
@@ -118,7 +119,10 @@ const EditPage = (props) => {
                 {chapterNumber && sections.length !== 0
                     ?
                         <fieldset>
-                            
+                            <button
+                                type='button'
+                                onClick={() => setShowEditChapt(true)}
+                            >Edit chapter number, title, and/or intro</button>
                             <fieldset>
                                 <legend>Select a section to edit</legend>
                             </fieldset>
@@ -127,6 +131,14 @@ const EditPage = (props) => {
                         <></>
                 }
             </form>
+            {showEditChapt && 
+                <AddNewChapter 
+                    suffix='-edit'
+                    setShowEditChapt={setShowEditChapt}
+                    currentData={chapters.find(c => c.chapter_number === chapterNumber)}
+                /> 
+            }
+            
         
         </section>
     )

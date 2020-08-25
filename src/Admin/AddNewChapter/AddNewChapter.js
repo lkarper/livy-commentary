@@ -6,27 +6,52 @@ const AddNewChapter = (props) => {
 
     const context = useContext(CommentaryContext);
 
-    const { nextChapter, bookNumber, setAddNewChapter } = props;
+    const { 
+        nextChapter, 
+        bookNumber, 
+        setAddNewChapter,
+        suffix,
+        setShowEditChapt,
+        currentData
+    } = props;
 
-    const [newChapterNumber, setNewChapterNumber] = useState(nextChapter);
-    const [newChapterTitle, setNewChapterTitle] = useState('');
-    const [newChapterIntro, setNewChapterIntro] = useState('');
+    const [newChapterNumber, setNewChapterNumber] = useState(nextChapter || parseInt(currentData.chapter_number.split('-')[1]));
+    const [newChapterTitle, setNewChapterTitle] = useState(currentData ? currentData.chapter_title : '');
+    const [newChapterIntro, setNewChapterIntro] = useState(currentData ? currentData.chapter_intro : '');
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const newChapter = {
-            book_number: bookNumber,
-            chapter_number: `${bookNumber}-${newChapterNumber}`,
-            chapter_title: newChapterTitle,
-            chapter_intro: newChapterIntro
-        };
+        if (suffix) {
+            const chapterToUpdate = {
+                book_number: bookNumber || currentData.book_number,
+                chapter_number: `${bookNumber || currentData.book_number}-${newChapterNumber}`,
+                chapter_title: newChapterTitle,
+                chapter_intro: newChapterIntro
+            };
+            CommentaryService.updateChapter(chapterToUpdate)
+                .then(() => {
+                    context.updateChapter(chapterToUpdate)
+                    setShowEditChapt(false);
+                })
+                .catch(error => console.log(error));
+        } else {
+            const newChapter = {
+                book_number: bookNumber,
+                chapter_number: `${bookNumber}-${newChapterNumber}`,
+                chapter_title: newChapterTitle,
+                chapter_intro: newChapterIntro
+            };
 
-        CommentaryService.addNewChapter(newChapter)
-            .then(chapter => {
-                context.addNewChapter(chapter);
-                setAddNewChapter(false);
-            })
+            CommentaryService.addNewChapter(newChapter)
+                .then(chapter => {
+                    context.addNewChapter(chapter);
+                    setAddNewChapter(false);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
 
     }
 
@@ -49,12 +74,11 @@ const AddNewChapter = (props) => {
                 onChange={(e) => setNewChapterTitle(e.target.value)}
             />
             <label htmlFor='new-chapter-intro'>Chapter introduction: </label>
-            <input 
-                type='textarea'
+            <textarea 
                 id='new-chapter-intro'
                 value={newChapterIntro}
                 onChange={(e) => setNewChapterIntro(e.target.value)}
-            />
+            ></textarea>
             <button
                 type='submit'
                 disabled={!newChapterNumber || !newChapterTitle || !newChapterIntro}

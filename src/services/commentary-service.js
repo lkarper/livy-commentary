@@ -58,6 +58,21 @@ const CommentaryService = {
                     : res.json()
             );
     },
+    updateChapter(chapterToUpdate) {
+        return fetch(`${config.API_ENDPOINT}/chapters/${chapterToUpdate.chapter_number}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify(chapterToUpdate)
+        })
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e));
+                }
+            });
+    },
 }
 
 export default CommentaryService;
