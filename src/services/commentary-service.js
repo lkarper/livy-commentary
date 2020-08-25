@@ -50,7 +50,14 @@ const CommentaryService = {
                     : res.json()    
             );
     },
-
+    fetchSectionsByChapterNumber(chapterNumber) {
+        return fetch(`${config.API_ENDPOINT}/chapters/${chapterNumber}`)
+            .then(res => 
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            );
+    },
 }
 
 export default CommentaryService;

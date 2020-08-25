@@ -3,6 +3,7 @@ import CommentaryContext from '../../context/CommentaryContext';
 import './EditPage.css';
 import AddNewBook from '../AddNewBook/AddNewBook';
 import AddNewChapter from '../AddNewChapter/AddNewChapter';
+import CommentaryService from '../../services/commentary-service';
 
 const EditPage = (props) => {
     
@@ -11,6 +12,7 @@ const EditPage = (props) => {
     const [bookNumber, setBookNumber] = useState();
     const [chapters, setChapters] = useState([]);
     const [chapterNumber, setChapterNumber] = useState();
+    const [sections, setSections] = useState([]);
     const [nextBook, setNextBookNumber] = useState();
     const [addNewBook, setAddNewBook] = useState(false);
     const [addNewChapter, setAddNewChapter] = useState(false);
@@ -32,6 +34,18 @@ const EditPage = (props) => {
             setChapters(chapters);
         }
     }, [bookNumber, setChapters, context.homePageLinkNumbers]);
+
+    useEffect(() => {
+        if (chapterNumber) {
+            CommentaryService.fetchSectionsByChapterNumber(chapterNumber)
+                .then(chapter => {
+                    setSections(chapter.sections);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+    }, [chapterNumber]);
 
     return (
         <section className='EditPage__outer-section'>
@@ -93,10 +107,27 @@ const EditPage = (props) => {
                         </button>
                     </fieldset>
                 }
-                
             </form>
             {addNewBook && <AddNewBook setAddNewBook={setAddNewBook} nextBook={nextBook} />}
             {addNewChapter && <AddNewChapter setAddNewChapter={setAddNewChapter} bookNumber={bookNumber} nextChapter={chapters.length + 1}/>}
+            <form>
+                {chapterNumber && sections.length === 0
+                    ? <p>Loading sections...</p>
+                    : <></>
+                }
+                {chapterNumber && sections.length !== 0
+                    ?
+                        <fieldset>
+                            
+                            <fieldset>
+                                <legend>Select a section to edit</legend>
+                            </fieldset>
+                        </fieldset>
+                    : 
+                        <></>
+                }
+            </form>
+        
         </section>
     )
 }
