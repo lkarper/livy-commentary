@@ -2,6 +2,7 @@ import React,  { useContext, useState, useEffect } from 'react';
 import CommentaryContext from '../../context/CommentaryContext';
 import './EditPage.css';
 import AddNewBook from '../AddNewBook/AddNewBook';
+import AddNewChapter from '../AddNewChapter/AddNewChapter';
 
 const EditPage = (props) => {
     
@@ -9,8 +10,10 @@ const EditPage = (props) => {
 
     const [bookNumber, setBookNumber] = useState();
     const [chapters, setChapters] = useState([]);
+    const [chapterNumber, setChapterNumber] = useState();
     const [nextBook, setNextBookNumber] = useState();
     const [addNewBook, setAddNewBook] = useState(false);
+    const [addNewChapter, setAddNewChapter] = useState(false);
 
     const commNumbers = [...context.homePageLinkNumbers];
 
@@ -28,7 +31,7 @@ const EditPage = (props) => {
                 .chapters;
             setChapters(chapters);
         }
-    }, [bookNumber])
+    }, [bookNumber, setChapters, context.homePageLinkNumbers]);
 
     return (
         <section className='EditPage__outer-section'>
@@ -58,13 +61,42 @@ const EditPage = (props) => {
                         {addNewBook ? 'Nevermind' : 'Add a new book'}
                     </button>
                 </fieldset>
-                <fieldset>
-                    <legend>Select a chapter to edit</legend>
-                    {
-                    }
-                </fieldset>
+                {bookNumber && 
+                    <fieldset>
+                        <legend>Select a chapter to edit</legend>
+                        {
+                            chapters.map(chapter => {
+                                return (
+                                    <div>
+                                        <input
+                                            type='radio'
+                                            name='chapter'
+                                            id={`chapter-${chapter.chapter_number}`}
+                                            value={chapter.chapter_number}
+                                            onChange={(e) => setChapterNumber(e.target.value)}
+                                            checked={chapterNumber === chapter.chapter_number}
+                                        />
+                                        <label
+                                            htmlFor={`chapter-${chapter.chapter_number}`}
+                                        >
+                                            Chapter {chapter.chapter_number.split('-')[1]}
+                                        </label>
+                                    </div>
+                                )
+                            })
+                        }
+                        <button 
+                            type='button'
+                            onClick={() => setAddNewChapter(!addNewChapter)}
+                        >
+                            {addNewChapter ? 'Nevermind' : 'Add new chapter'}
+                        </button>
+                    </fieldset>
+                }
+                
             </form>
             {addNewBook && <AddNewBook setAddNewBook={setAddNewBook} nextBook={nextBook} />}
+            {addNewChapter && <AddNewChapter setAddNewChapter={setAddNewChapter} bookNumber={bookNumber} nextChapter={chapters.length + 1}/>}
         </section>
     )
 }
