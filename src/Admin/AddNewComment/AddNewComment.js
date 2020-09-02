@@ -6,6 +6,7 @@ const AddNewComment = (props) => {
     const {
         section,
         suffix,
+        comment_order,
         setShowEditComment,
         setCommentToEdit,
         setAddNewComment,
@@ -23,7 +24,8 @@ const AddNewComment = (props) => {
         const newComment = {
             section,
             tag,
-            comment
+            comment,
+            comment_order: comment_order || currentData.comment_order
         };
 
         if (suffix) {
@@ -48,7 +50,7 @@ const AddNewComment = (props) => {
                 })
                 .catch(error => {
                     console.log(error);
-                })
+                });
         }
     }
 

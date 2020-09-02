@@ -1,4 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import CommentaryContext from '../../context/CommentaryContext';
 import './EditPage.css';
 import AddNewBook from '../AddNewBook/AddNewBook';
@@ -7,6 +9,7 @@ import CommentaryService from '../../services/commentary-service';
 import AddNewSection from '../AddNewSection/AddNewSection';
 import CommentaryReadComment from '../../CommentaryRead/CommentaryReadComment/CommentaryReadComment';
 import AddNewComment from '../AddNewComment/AddNewComment';
+import OrderCommentsContainer from '../OrderCommentsContainer/OrderCommentsContainer';
 
 const EditPage = (props) => {
     
@@ -25,6 +28,7 @@ const EditPage = (props) => {
     const [showEditChapt, setShowEditChapt] = useState(false);
     const [showEditSection, setShowEditSection] = useState(false);
     const [showEditComment, setShowEditComment] = useState(false);
+    const [showOrderComments, setShowOrderComments] = useState(false);
     const [commentToEdit, setCommentToEdit] = useState(null);
     const [forceUpdate, setForceUpdate] = useState();
 
@@ -191,7 +195,15 @@ const EditPage = (props) => {
                                     id={`book-${book.book_number}`}
                                     name='book'
                                     value={book.book_number}
-                                    onChange={(e) => setBookNumber(parseInt(e.target.value))}
+                                    onChange={(e) => {
+                                        if (sectionNumber) {
+                                            setSectionNumber(null);
+                                        }
+                                        if (chapterNumber) {
+                                            setChapterNumber(null);
+                                        }
+                                        setBookNumber(parseInt(e.target.value));
+                                    }}
                                     checked={bookNumber === book.book_number}
                                 />
                                 <label htmlFor={`book-${book.book_number}`}>Book {book.book_number}</label>
@@ -230,7 +242,12 @@ const EditPage = (props) => {
                                                 name='chapter'
                                                 id={`chapter-${chapter.chapter_number}`}
                                                 value={chapter.chapter_number}
-                                                onChange={(e) => setChapterNumber(e.target.value)}
+                                                onChange={(e) => {
+                                                    if (sectionNumber) {
+                                                        setSectionNumber(null);
+                                                    }
+                                                    setChapterNumber(e.target.value)
+                                                }}
                                                 checked={chapterNumber === chapter.chapter_number}
                                             />
                                             <label
@@ -355,14 +372,24 @@ const EditPage = (props) => {
                             type='button'
                             onClick={() => setAddNewComment(!addNewComment)}
                         >Add new comment</button>
+                        {(sections.find(s => s.section_number === sectionNumber).comments && sections.find(s => s.section_number === sectionNumber).comments.length) &&
+                            <button
+                                type='button'
+                                onClick={() => setShowOrderComments(!showOrderComments)}
+                            >
+                                Reorder comments
+                            </button>
+                        }
                         {addNewComment &&
                             <AddNewComment 
                                 section={sectionNumber}
+                                comment_order={sections.find(s => s.section_number === sectionNumber).comments.length + 1}
                                 addNewComment={addComment}
                                 setAddNewComment={setAddNewComment}
                             />
                         }
                         {sections.find(s => s.section_number === sectionNumber).comments && sections.find(s => s.section_number === sectionNumber).comments
+                            .sort((a, b) => a.comment_order - b.comment_order)
                             .map(comment => 
                                 <div key={comment.id}>
                                     <CommentaryReadComment 
@@ -422,6 +449,16 @@ const EditPage = (props) => {
                     forceUpdate={setForceUpdate}
                     setAddNewSection={setAddNewSection}
                 />
+            }
+            {showOrderComments && 
+                <DndProvider backend={HTML5Backend}>
+                    <OrderCommentsContainer 
+                        comments={sections.find(s => s.section_number === sectionNumber).comments}
+                        setShowOrderComments={setShowOrderComments}
+                        setSectionNumber={setSectionNumber}
+                        forceUpdate={setForceUpdate}
+                    />
+                </DndProvider>
             }
         </section>
     );

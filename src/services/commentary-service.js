@@ -185,6 +185,16 @@ const CommentaryService = {
                 }
             });
     },
+    reorderComments(commentId, commentToUpdate) {
+        return fetch(`${config.API_ENDPOINT}/comments/${commentId}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+            body: JSON.stringify(commentToUpdate),
+        });
+    },
 }
 
 export default CommentaryService;

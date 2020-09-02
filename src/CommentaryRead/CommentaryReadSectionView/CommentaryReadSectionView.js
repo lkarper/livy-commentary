@@ -14,7 +14,10 @@ const CommentaryReadSectionView = (props) => {
             </section>
             <section className='CommentaryReadSectionView__section'>
                 <h3>Commentary and Notes</h3>
-                {section.comments && section.comments.map((comment, i) => <CommentaryReadComment key={i} comment={comment} />)}
+                {section.comments && 
+                    section.comments
+                        .sort((a, b) => a.comment_order - b.comment_order)
+                        .map((comment, i) => <CommentaryReadComment key={i} comment={comment} />)}
                 {!section.comments && <p>No notes yet for this section.</p>}
             </section>
         </div>
