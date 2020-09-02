@@ -1,0 +1,13 @@
+.AddNewChapter__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.AddNewChapter__input-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.AddNewChapter__textarea {
+    height: 200px;
+}

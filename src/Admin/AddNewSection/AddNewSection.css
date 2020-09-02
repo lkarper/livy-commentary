@@ -1,0 +1,13 @@
+.AddNewSection__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.AddNewSection__input-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.AddNewSection__textarea {
+    height: 200px;
+}

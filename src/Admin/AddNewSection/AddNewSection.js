@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import CommentaryContext from '../../context/CommentaryContext';
 import CommentaryService from '../../services/commentary-service';
+import './AddNewSection.css';
 
 const AddNewSection = (props) => {
 
@@ -56,20 +57,32 @@ const AddNewSection = (props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor='new-section-number'>New section number: </label>
-            <input 
-                type='number'
-                id='new-section-number'
-                value={newSectionNumber}
-                onChange={(e) => setNewSectionNumber(e.target.value)}
-            />
-            <label htmlFor='new-section-latin'>Latin: </label>
-            <textarea
-                id='new-section-latin'
-                value={latin}
-                onChange={(e) => setLatin(e.target.value)}
-            ></textarea>
+        <form 
+            className='AddNewSection__form'
+            onSubmit={handleSubmit}
+        >
+            <div
+                className='AddNewSection__input-div'
+            >
+                <label htmlFor='new-section-number'>New section number: </label>
+                <input 
+                    type='number'
+                    id='new-section-number'
+                    value={newSectionNumber}
+                    onChange={(e) => setNewSectionNumber(e.target.value)}
+                />
+            </div>
+            <div
+                className='AddNewSection__input-div'
+            >
+                <label htmlFor='new-section-latin'>Latin: </label>
+                <textarea
+                    className='AddNewSection__textarea'
+                    id='new-section-latin'
+                    value={latin}
+                    onChange={(e) => setLatin(e.target.value)}
+                ></textarea>
+            </div>
             <button
                 type='submit'
                 disabled={!newSectionNumber || !latin}

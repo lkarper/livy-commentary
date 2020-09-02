@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CommentaryService from '../../services/commentary-service';
+import './AddNewComment.css';
 
 const AddNewComment = (props) => {
 
@@ -55,20 +56,32 @@ const AddNewComment = (props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor='new-comment-tag'>Tag: </label>
-            <input 
-                type='text'
-                id='new-comment-tag'
-                value={tag}
-                onChange={(e) => setTag(e.target.value)}
-            />
-            <label htmlFor='new-comment'>Comment: </label>
-            <textarea
-                id='new-comment'
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-            ></textarea>
+        <form 
+            className='AddNewComment_form'
+            onSubmit={handleSubmit}
+        >
+            <div
+                className='AddNewComment__input-div'
+            >
+                <label htmlFor='new-comment-tag'>Tag: </label>
+                <input 
+                    type='text'
+                    id='new-comment-tag'
+                    value={tag}
+                    onChange={(e) => setTag(e.target.value)}
+                />
+            </div>
+            <div
+                className='AddNewComment__input-div'
+            >
+                <label htmlFor='new-comment'>Comment: </label>
+                <textarea
+                    className='AddNewComment__textarea'
+                    id='new-comment'
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                ></textarea>
+            </div>
             <button
                 type='submit'
                 disabled={!tag || !comment}

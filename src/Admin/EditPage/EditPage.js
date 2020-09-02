@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import CommentaryContext from '../../context/CommentaryContext';
-import './EditPage.css';
 import AddNewBook from '../AddNewBook/AddNewBook';
 import AddNewChapter from '../AddNewChapter/AddNewChapter';
 import CommentaryService from '../../services/commentary-service';
@@ -10,6 +9,7 @@ import AddNewSection from '../AddNewSection/AddNewSection';
 import CommentaryReadComment from '../../CommentaryRead/CommentaryReadComment/CommentaryReadComment';
 import AddNewComment from '../AddNewComment/AddNewComment';
 import OrderCommentsContainer from '../OrderCommentsContainer/OrderCommentsContainer';
+import './EditPage.css';
 
 const EditPage = (props) => {
     
@@ -54,7 +54,6 @@ const EditPage = (props) => {
         if (chapterNumber) {
             CommentaryService.fetchSectionsByChapterNumber(chapterNumber)
                 .then(chapter => {
-                    console.log(chapter.sections);
                     setSections(chapter.sections);
                 })
                 .catch(error => {
@@ -128,6 +127,8 @@ const EditPage = (props) => {
         if (window.confirm(`Are you sure that you'd like to delete Book ${bookNumber}? (If you delete a book, all of its contents will be deleted!)`)) {
             CommentaryService.deleteBook(bookNumber)
                 .then(() => {
+                    setSectionNumber(null);
+                    setChapterNumber(null);
                     setBookNumber(null);
                     context.removeBook(bookNumber);
                 })
@@ -356,7 +357,9 @@ const EditPage = (props) => {
                         <button
                             type='button'
                             onClick={(e) => setShowEditSection(!showEditSection)}
-                        >Edit</button>
+                        >
+                            {showEditSection ? 'Nevermind' : 'Edit'}
+                        </button>
                         {showEditSection && 
                             <AddNewSection 
                                 suffix='-edit'
@@ -371,8 +374,10 @@ const EditPage = (props) => {
                         <button
                             type='button'
                             onClick={() => setAddNewComment(!addNewComment)}
-                        >Add new comment</button>
-                        {(sections.find(s => s.section_number === sectionNumber).comments && sections.find(s => s.section_number === sectionNumber).comments.length) &&
+                        >
+                            Add new comment
+                        </button>
+                        {(sections.find(s => s.section_number === sectionNumber).comments && sections.find(s => s.section_number === sectionNumber).comments.length !== 0) &&
                             <button
                                 type='button'
                                 onClick={() => setShowOrderComments(!showOrderComments)}
@@ -424,7 +429,7 @@ const EditPage = (props) => {
                                 </div>
                             )
                         }
-                        {!sections.find(s => s.section_number === sectionNumber).comments && <p>No notes yet for this section.</p>}
+                        {!sections.find(s => s.section_number === sectionNumber).comments.length && <p>No notes yet for this section.</p>}
                     </section>
                 </div>
                     // .find(s => s.section_number === sectionNumber)

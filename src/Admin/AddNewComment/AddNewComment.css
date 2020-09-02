@@ -1,0 +1,13 @@
+.AddNewComment__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.AddNewComment__input-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.AddNewComment__textarea {
+    height: 200px;
+}
