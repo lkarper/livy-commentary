@@ -24,7 +24,8 @@ const CommentaryHomeChapterLink = (props) => {
                             book_number={book_number} 
                             chapter_number={chapter.chapter_number} 
                             section={section} 
-                        />)
+                        />
+                    )
                 }
             </ul>
         </div>

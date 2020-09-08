@@ -23,7 +23,8 @@ const CommentaryHomeBookLink = (props) => {
                         key={chapter.chapter_number} 
                         book_number={book.book_number} 
                         chapter={chapter} 
-                    />)
+                    />
+                )
             }
         </div>
     );
