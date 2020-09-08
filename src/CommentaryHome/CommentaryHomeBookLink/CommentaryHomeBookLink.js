@@ -16,12 +16,14 @@ const CommentaryHomeBookLink = (props) => {
                     Book {book.book_number}
                 </Link>
             </h2>
-            {book.chapters.map(chapter => 
-                <CommentaryHomeChapterLink 
-                    key={chapter.chapter_number} 
-                    book_number={book.book_number} 
-                    chapter={chapter} 
-                />)
+            {book.chapters
+                .sort((a, b) => parseInt(a.chapter_number.split('-')[1]) - parseInt(b.chapter_number.split('-')[1]))
+                .map(chapter => 
+                    <CommentaryHomeChapterLink 
+                        key={chapter.chapter_number} 
+                        book_number={book.book_number} 
+                        chapter={chapter} 
+                    />)
             }
         </div>
     );

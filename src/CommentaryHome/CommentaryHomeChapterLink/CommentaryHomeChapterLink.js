@@ -16,13 +16,15 @@ const CommentaryHomeChapterLink = (props) => {
                 </Link>
             </h3>
             <ul>
-                {chapter.sections.map(section => 
-                    <CommentaryHomeSectionLink 
-                        key={section.section_number} 
-                        book_number={book_number} 
-                        chapter_number={chapter.chapter_number} 
-                        section={section} 
-                    />)
+                {chapter.sections
+                    .sort((a, b) => parseInt(a.section_number.split('-')[2]) - parseInt(b.section_number.split('-')[2]))
+                    .map(section => 
+                        <CommentaryHomeSectionLink 
+                            key={section.section_number} 
+                            book_number={book_number} 
+                            chapter_number={chapter.chapter_number} 
+                            section={section} 
+                        />)
                 }
             </ul>
         </div>
