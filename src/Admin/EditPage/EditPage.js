@@ -382,7 +382,7 @@ const EditPage = (props) => {
                                 type='button'
                                 onClick={() => setShowOrderComments(!showOrderComments)}
                             >
-                                Reorder comments
+                                {showOrderComments ? 'Nevermind': 'Reorder comments'}
                             </button>
                         }
                         {addNewComment &&
