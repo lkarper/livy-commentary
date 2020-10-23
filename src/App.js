@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import Header from './Header/Header';
 import CommentaryHome from './CommentaryHome/CommentaryHome';
