@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CommentaryContext from '../context/CommentaryContext';
+import CommentaryReadHeader from './CommentaryReadHeader/CommentaryReadHeader';
 import CommentaryReadSectionView from './CommentaryReadSectionView/CommentaryReadSectionView';
 import CommentaryReadChapter from './CommentaryReadChapter/CommentaryReadChapter';
 import CommentaryReadNavButtons from './CommentaryReadNavButtons/CommentaryReadNavButtons';
@@ -104,9 +105,12 @@ const CommentaryRead = (props) => {
     if (book && chapter && section) {
         htmlToDisplay = (
             <section className='CommentaryRead__container section'>
-                <header>
-                    <h2>{bookLink}{' > '}{chapterLink}{' > '}§{sectionNumber}</h2>
-                </header>
+                <CommentaryReadHeader 
+                    bookNumber={bookNumber}
+                    chapterNumber={chapterNumber}
+                    sectionNumber={sectionNumber}
+                    suffix='widescreen'
+                />
                 <CommentaryReadSectionView
                     bookNumber={bookNumber}
                     chapterNumber={chapterNumber} 
@@ -117,9 +121,11 @@ const CommentaryRead = (props) => {
     } else if (book && chapter) {
         htmlToDisplay = (
             <section className='CommentaryRead__container section'>
-                <header>
-                    <h2>{bookLink}{' > '}Chapter {chapterNumber}</h2>
-                </header>
+                <CommentaryReadHeader 
+                    bookNumber={bookNumber}
+                    chapterNumber={chapterNumber}
+                    suffix='widescreen'
+                />
                 <CommentaryReadChapter 
                     chapter={chapter}
                     bookNumber={bookNumber}
@@ -130,9 +136,10 @@ const CommentaryRead = (props) => {
     } else if (book) {
         htmlToDisplay = (
             <section className='CommentaryRead__container section'>
-                <header>
-                    <h2>Book {bookNumber}</h2>
-                </header>
+                <CommentaryReadHeader 
+                    bookNumber={bookNumber}
+                    suffix='widescreen'
+                />
                 {book.chapters.map(chapter => 
                     <CommentaryReadChapter 
                         key={chapter.chapter_number}
@@ -151,6 +158,9 @@ const CommentaryRead = (props) => {
                 <CommentaryReadNavButtons 
                     book={book} 
                     search={location}
+                    bookNumber={bookNumber}
+                    chapterNumber={chapterNumber}
+                    sectionNumber={sectionNumber}
                 />
                 {htmlToDisplay}
             </section>
