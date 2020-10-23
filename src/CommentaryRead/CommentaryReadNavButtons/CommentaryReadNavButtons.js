@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
+import CommentaryReadHeader from '../CommentaryReadHeader/CommentaryReadHeader';
 import './CommentaryReadNavButtons.css';
 
 const CommentaryReadNavButtons = (props) => {
+    const { 
+        book, 
+        search,
+        bookNumber,
+        chapterNumber,
+        sectionNumber, 
+    } = props;
 
-    const { book, search } = props;
+    const [showNav, setShowNav] = useState(false);
 
     let sBook;
     let sChapt;
@@ -24,41 +34,63 @@ const CommentaryReadNavButtons = (props) => {
     }
 
     return (
-        <nav className='CommentaryReadNavButtons__nav'>
-            <div className='CommentaryReadNavButtons__container'>
-                <NavLink
-                    className={`CommentaryReadNavButtons__button ${book.book_number === parseInt(sBook) && 'selected'}`}
-                    to={`/commentary-read/${book.book_number}`}
+        <div
+            className='CommentaryReadNavButtons__outer-container'
+        >
+            <div
+                className='CommentaryReadNavButtons__mobile-container'
+            >
+                <CommentaryReadHeader 
+                    bookNumber={bookNumber}
+                    chapterNumber={chapterNumber}
+                    sectionNumber={sectionNumber}
+                    suffix='mobile'
+                />
+                <button
+                    onClick={() => setShowNav(!showNav)}
                 >
-                    Book {book.book_number}
-                </NavLink>
+                    <FontAwesomeIcon 
+                        className='CommentaryReadNavButtons__menu-button' 
+                        icon={faBookOpen}  
+                    />
+                </button>
             </div>
-            <div className='CommentaryReadNavButtons__container'>
-                {book.chapters.map(chapter => 
+            <nav className={`CommentaryReadNavButtons__nav ${!showNav ? 'hidden' : ''}`}>
+                <div className='CommentaryReadNavButtons__container'>
                     <NavLink
-                        className={`CommentaryReadNavButtons__button ${(sChapt && chapter.chapter_number === sChapt) && 'selected'}`}
-                        key={chapter.chapter_number}
-                        to={`/commentary-read/${chapter.chapter_number}`}
+                        className={`CommentaryReadNavButtons__button ${book.book_number === parseInt(sBook) ? 'selected' : ''}`}
+                        to={`/commentary-read/${book.book_number}`}
                     >
-                        Chapter {chapter.chapter_number.split('-')[1]}
+                        Book {book.book_number}
                     </NavLink>
-                    )
-                }
-            </div>
-            <div className='CommentaryReadNavButtons__container'>
-                {book.chapters.map(chapter => {
-                    return chapter.sections.map(section => 
+                </div>
+                <div className='CommentaryReadNavButtons__container'>
+                    {book.chapters.map(chapter => 
                         <NavLink
-                            className={`CommentaryReadNavButtons__button ${(sSection && section.section_number === sSection) && 'selected'}`}
-                            key={`${chapter.chapter_number}.${section.section_number}`}
-                            to={`/commentary-read/${section.section_number}`}
+                            className={`CommentaryReadNavButtons__button ${(sChapt && chapter.chapter_number === sChapt) ? 'selected' : ''}`}
+                            key={chapter.chapter_number}
+                            to={`/commentary-read/${chapter.chapter_number}`}
                         >
-                            {chapter.chapter_number.split('-')[1]}.{section.section_number.split('-')[2]}
+                            Chapter {chapter.chapter_number.split('-')[1]}
                         </NavLink>
-                        );
-                }).flat()}
-            </div>
-        </nav>
+                        )
+                    }
+                </div>
+                <div className='CommentaryReadNavButtons__container'>
+                    {book.chapters.map(chapter => {
+                        return chapter.sections.map(section => 
+                            <NavLink
+                                className={`CommentaryReadNavButtons__button ${(sSection && section.section_number === sSection) && 'selected'}`}
+                                key={`${chapter.chapter_number}.${section.section_number}`}
+                                to={`/commentary-read/${section.section_number}`}
+                            >
+                                {chapter.chapter_number.split('-')[1]}.{section.section_number.split('-')[2]}
+                            </NavLink>
+                            );
+                    }).flat()}
+                </div>
+            </nav>
+        </div>
     );
 }
 
