@@ -1,0 +1,17 @@
+.CommentaryReadHeader__header.widescreen {
+    display: none;
+}
+
+.CommentaryReadHeader__header h2 {
+    font-size: 16px;
+}
+
+@media screen and (min-width: 900px) {
+    .CommentaryReadHeader__header.widescreen {
+        display: inline-block;
+    }
+
+    .CommentaryReadNavButtons__mobile-container {
+        display: none;
+    }
+}

@@ -1,16 +1,42 @@
-.CommentaryReadNavButtons__container {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.CommentaryReadNavButtons__nav {
+.CommentaryReadNavButtons__outer-container {
     position: fixed;
     top: 100px;
     width: 100%;
-    height: 100px;
-    z-index: 10;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+.CommentaryReadNavButtons__mobile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    width: 100%;
+}
+
+.CommentaryReadNavButtons__menu-button {
+    font-size: 30px;
+}
+
+.CommentaryReadNavButtons__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.CommentaryReadNavButtons__nav {
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.CommentaryReadNavButtons__nav.hidden {
+    display: none;
 }
 
 .CommentaryReadNavButtons__button {
@@ -19,7 +45,6 @@
     border: 1px solid black;
     font-size: 14px;
     display: block;
-    width: 100%;
     text-align: center;
     background-color: blue;
     color: white;
@@ -28,4 +53,10 @@
 .CommentaryReadNavButtons__button.selected {
     color: white;
     background-color: darkblue;
+}
+
+@media screen and (min-width: 900px) {
+    .CommentaryReadNavButtons__nav.hidden {
+        display: flex;
+    }
 }

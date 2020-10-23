@@ -9,4 +9,5 @@
     margin: 5px;
     padding: 10px;
     border: 1px solid black;
+    word-wrap: break-word;
 }
