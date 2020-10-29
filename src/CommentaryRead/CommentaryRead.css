@@ -1,3 +1,9 @@
 .CommentaryRead__container.section {
-    margin-top: 250px;
+    margin-top: 150px;
+}
+
+@media screen and (min-width: 900px) {
+    .CommentaryRead__container.section {
+        margin-top: 250px;
+    }   
 }
