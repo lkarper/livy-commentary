@@ -65,14 +65,18 @@ const CommentaryReadNavButtons = (props) => {
                     </NavLink>
                 </div>
                 <div className='CommentaryReadNavButtons__container'>
-                    {book.chapters.map(chapter => 
-                        <NavLink
-                            className={`CommentaryReadNavButtons__button ${(sChapt && chapter.chapter_number === sChapt) ? 'selected' : ''}`}
-                            key={chapter.chapter_number}
-                            to={`/commentary-read/${chapter.chapter_number}`}
-                        >
-                            Chapter {chapter.chapter_number.split('-')[1]}
-                        </NavLink>
+                    {book.chapters
+                        .sort((a, b) => parseInt(a.chapter_number.split('-')[1]) - parseInt(b.chapter_number.split('-')[1]))
+                        .map(chapter => 
+                            (
+                                <NavLink
+                                    className={`CommentaryReadNavButtons__button ${(sChapt && chapter.chapter_number === sChapt) ? 'selected' : ''}`}
+                                    key={chapter.chapter_number}
+                                    to={`/commentary-read/${chapter.chapter_number}`}
+                                >
+                                    Chapter {chapter.chapter_number.split('-')[1]}
+                                </NavLink>
+                            )
                         )
                     }
                 </div>
@@ -81,17 +85,19 @@ const CommentaryReadNavButtons = (props) => {
                         book.chapters
                             .filter(c => c.chapter_number.split('-')[1] === chapterNumber)
                             .map(chapter => {
-                                return chapter.sections.map(section => 
-                                    <NavLink
-                                        className={`CommentaryReadNavButtons__button ${(sSection && section.section_number === sSection) && 'selected'}`}
-                                        key={`${chapter.chapter_number}.${section.section_number}`}
-                                        to={`/commentary-read/${section.section_number}`}
-                                    >
-                                        {chapter.chapter_number.split('-')[1]}.{section.section_number.split('-')[2]}
-                                    </NavLink>
-                                    );
-                            })
-                            .flat()
+                                return chapter.sections
+                                    .sort((a, b) => parseInt(a.section_number.split('-')[2]) - parseInt(b.section_number.split('-')[2]))
+                                    .map(section => 
+                                        <NavLink
+                                            className={`CommentaryReadNavButtons__button ${(sSection && section.section_number === sSection) && 'selected'}`}
+                                            key={`${chapter.chapter_number}.${section.section_number}`}
+                                            to={`/commentary-read/${section.section_number}`}
+                                        >
+                                            {chapter.chapter_number.split('-')[1]}.{section.section_number.split('-')[2]}
+                                        </NavLink>
+                                        );
+                                })
+                                .flat()
                     }
                 </div>
             </nav>
