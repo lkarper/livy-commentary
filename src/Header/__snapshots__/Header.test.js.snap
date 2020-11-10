@@ -24,7 +24,9 @@ exports[`Header component renders the UI as expected 1`] = `
       }
     }
   >
-    <Header>
+    <Header
+      forceUpdate={[Function]}
+    >
       <header
         className="Header__header"
       >
