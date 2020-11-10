@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentaryHomeBookLink component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CommentaryHomeBookLink
+      book={
+        Object {
+          "book_number": 0,
+          "chapters": Array [],
+        }
+      }
+    >
+      <div
+        className="CommentaryHomeBookLink_book-link-container"
+      >
+        <h2>
+          Error
+        </h2>
+        <p>
+          Looks like something went wrong. Please check your connection and try again.
+        </p>
+      </div>
+    </CommentaryHomeBookLink>
+  </Router>
+</BrowserRouter>
+`;
