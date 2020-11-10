@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Header>
+      <header
+        className="Header__header"
+      >
+        <h1>
+          <Link
+            to="/"
+          >
+            <LinkAnchor
+              href="/"
+              navigate={[Function]}
+            >
+              <a
+                href="/"
+                onClick={[Function]}
+              >
+                Commentarius de bello Punico
+              </a>
+            </LinkAnchor>
+          </Link>
+        </h1>
+      </header>
+    </Header>
+  </Router>
+</BrowserRouter>
+`;
