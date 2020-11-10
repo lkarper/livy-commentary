@@ -2,6 +2,7 @@ import React from 'react';
 import TokenService from '../services/token-service';
 import IdleService from '../services/idle-service';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Header.css';
 
 const Header = (props) => {
@@ -36,5 +37,13 @@ const Header = (props) => {
         </header>
     );
 }
+
+Header.defaultProps = {
+    forceUpdate: () => {},
+};
+
+Header.propTypes = {
+    forceUpdate: PropTypes.func,
+};
 
 export default Header;
