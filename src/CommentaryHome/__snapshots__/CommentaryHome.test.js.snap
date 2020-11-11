@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentaryHome component renders the UI as expected 1`] = `
+<CommentaryHome>
+  <div
+    className="CommentaryHome__book-link-container"
+  />
+</CommentaryHome>
+`;
