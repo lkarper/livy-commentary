@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
 import CommentaryReadHeader from '../CommentaryReadHeader/CommentaryReadHeader';
+import PropTypes from 'prop-types';
 import './CommentaryReadNavButtons.css';
 
 const CommentaryReadNavButtons = (props) => {
@@ -31,6 +32,16 @@ const CommentaryReadNavButtons = (props) => {
         sBook = sArray[0];
         sChapt = `${sArray[0]}-${sArray[1]}`;
         sSection = `${sArray[0]}-${sArray[1]}-${sArray[2]}`;
+    }
+
+    if (!bookNumber || !search) {
+        return (
+            <div
+                className='CommentaryReadNavButtons__outer-container'
+            >
+                <p>Error: Looks like something went wrong; check your connection and try again.</p>
+            </div>
+        );
     }
 
     return (
@@ -89,7 +100,7 @@ const CommentaryReadNavButtons = (props) => {
                                     .sort((a, b) => parseInt(a.section_number.split('-')[2]) - parseInt(b.section_number.split('-')[2]))
                                     .map(section => 
                                         <NavLink
-                                            className={`CommentaryReadNavButtons__button ${(sSection && section.section_number === sSection) && 'selected'}`}
+                                            className={`CommentaryReadNavButtons__button ${(sSection && section.section_number === sSection) ? 'selected' : ''}`}
                                             key={`${chapter.chapter_number}.${section.section_number}`}
                                             to={`/commentary-read/${section.section_number}`}
                                         >
@@ -104,5 +115,27 @@ const CommentaryReadNavButtons = (props) => {
         </div>
     );
 }
+
+CommentaryReadNavButtons.defaultProps = { 
+    book: {
+        book_number: 0,
+        chapters: [],
+    }, 
+    search: '',
+    bookNumber: '',
+    chapterNumber: '',
+    sectionNumber: '', 
+};
+
+CommentaryReadNavButtons.propTypes = {
+    book: PropTypes.shape({
+        book_number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        chapters: PropTypes.arrayOf(PropTypes.object),
+    }),
+    search: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    bookNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    chapterNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    sectionNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+};
 
 export default CommentaryReadNavButtons;
