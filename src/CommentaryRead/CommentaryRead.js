@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import CommentaryContext from '../context/CommentaryContext';
 import CommentaryReadHeader from './CommentaryReadHeader/CommentaryReadHeader';
 import CommentaryReadSectionView from './CommentaryReadSectionView/CommentaryReadSectionView';
 import CommentaryReadChapter from './CommentaryReadChapter/CommentaryReadChapter';
 import CommentaryReadNavButtons from './CommentaryReadNavButtons/CommentaryReadNavButtons';
-import './CommentaryRead.css';
 import CommentaryService from '../services/commentary-service';
+import './CommentaryRead.css';
 
 const CommentaryRead = (props) => {
 
@@ -173,5 +174,17 @@ const CommentaryRead = (props) => {
         </section>
     );
 }
+
+CommentaryRead.defaultProps = {
+    match: {
+        params: {
+            location: '',
+        },
+    },
+};
+
+CommentaryRead.propTypes = {
+    match: PropTypes.object,
+};
 
 export default CommentaryRead;
