@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
+import PropTypes from 'prop-types';
 
 const CommentaryReadComment = (props) => {
 
@@ -19,5 +20,19 @@ const CommentaryReadComment = (props) => {
         </div>    
     );
 }
+
+CommentaryReadComment.defaultProps = {
+    comment: {
+        tag: '',
+        comment: '',
+    },
+};
+
+CommentaryReadComment.propTypes = {
+    comment: PropTypes.shape({
+        tag: PropTypes.string,
+        comment: PropTypes.string,
+    }),
+};
 
 export default CommentaryReadComment;
