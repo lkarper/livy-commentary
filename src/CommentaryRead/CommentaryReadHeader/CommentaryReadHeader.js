@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './CommentaryReadHeader.css';
 
 const CommentaryReadHeader = (props) => {
@@ -55,7 +56,17 @@ const CommentaryReadHeader = (props) => {
 }
 
 CommentaryReadHeader.defaultProps = {
+    bookNumber: '',
+    chapterNumber: '',
+    sectionNumber: '',
     suffix: '',
-}
+};
+
+CommentaryReadHeader.propTypes = {
+    bookNumber: PropTypes.string,
+    chapterNumber: PropTypes.string,
+    sectionNumber: PropTypes.string,
+    suffix: PropTypes.string,
+};
 
 export default CommentaryReadHeader;
