@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentaryReadChapter component renders the UI as expected 1`] = `
+<CommentaryReadChapter
+  chapter={
+    Object {
+      "chapter_intro": "",
+      "chapter_number": "",
+      "chapter_title": "",
+      "sections": Array [],
+    }
+  }
+>
+  <h3>
+    Chapter 
+    : 
+  </h3>
+  <p />
+</CommentaryReadChapter>
+`;
