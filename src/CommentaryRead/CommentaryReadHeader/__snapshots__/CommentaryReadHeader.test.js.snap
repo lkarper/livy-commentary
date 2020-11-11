@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentaryReadHeader component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CommentaryReadHeader
+      bookNumber=""
+      chapterNumber=""
+      sectionNumber=""
+      suffix=""
+    >
+      <header
+        className="CommentaryReadHeader__header "
+      >
+        <h2>
+          Book 
+        </h2>
+      </header>
+    </CommentaryReadHeader>
+  </Router>
+</BrowserRouter>
+`;
