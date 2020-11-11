@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentaryHomeSectionLink component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CommentaryHomeSectionLink
+      section={
+        Object {
+          "section_number": 0,
+        }
+      }
+    >
+      <li>
+        <Link
+          to="/commentary-read/0"
+        >
+          <LinkAnchor
+            href="/commentary-read/0"
+            navigate={[Function]}
+          >
+            <a
+              href="/commentary-read/0"
+              onClick={[Function]}
+            >
+              §
+              0
+            </a>
+          </LinkAnchor>
+        </Link>
+      </li>
+    </CommentaryHomeSectionLink>
+  </Router>
+</BrowserRouter>
+`;
