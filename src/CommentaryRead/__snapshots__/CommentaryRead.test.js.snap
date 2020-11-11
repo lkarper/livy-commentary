@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentaryRead component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CommentaryRead
+      match={
+        Object {
+          "params": Object {
+            "location": "",
+          },
+        }
+      }
+    >
+      <section
+        className="section"
+      >
+        <p>
+          Loading...
+        </p>
+      </section>
+    </CommentaryRead>
+  </Router>
+</BrowserRouter>
+`;
