@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentaryReadNavButtons component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CommentaryReadNavButtons
+      book={
+        Object {
+          "book_number": 0,
+          "chapters": Array [],
+        }
+      }
+      bookNumber=""
+      chapterNumber=""
+      search=""
+      sectionNumber=""
+    >
+      <div
+        className="CommentaryReadNavButtons__outer-container"
+      >
+        <p>
+          Error: Looks like something went wrong; check your connection and try again.
+        </p>
+      </div>
+    </CommentaryReadNavButtons>
+  </Router>
+</BrowserRouter>
+`;
