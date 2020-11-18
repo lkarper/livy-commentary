@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import CommentaryContext from '../context/CommentaryContext';
 import CommentaryReadHeader from './CommentaryReadHeader/CommentaryReadHeader';
 import CommentaryReadSectionView from './CommentaryReadSectionView/CommentaryReadSectionView';
 import CommentaryReadChapter from './CommentaryReadChapter/CommentaryReadChapter';
@@ -10,9 +8,6 @@ import CommentaryService from '../services/commentary-service';
 import './CommentaryRead.css';
 
 const CommentaryRead = (props) => {
-
-    const context = useContext(CommentaryContext);
-
     const [bookNumber, setBookNumber] = useState();
     const [chapterNumber, setChapterNumber] = useState();
     const [sectionNumber, setSectionNumber] = useState();
@@ -86,22 +81,6 @@ const CommentaryRead = (props) => {
     }, [bookNumber, chapterNumber, sectionNumber, book, chapter, setSection, setSectionNotFound]);
 
     let htmlToDisplay;
-
-    const bookLink = (
-        <Link 
-            to={`/commentary-read/${bookNumber}`}
-        >
-            Book {bookNumber}
-        </Link>
-    );
-
-    const chapterLink = (
-        <Link
-            to={`/commentary-read/${bookNumber}-${chapterNumber}`}
-        >
-            Chapter {chapterNumber}
-        </Link>
-    );
 
     if (bookNotFound || chapterNotFound || sectionNotFound) {
         return (
