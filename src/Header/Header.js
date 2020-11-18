@@ -22,7 +22,7 @@ const Header = (props) => {
                 <Link
                     to='/'
                 >
-                    Commentarius de bello Punico
+                    The Third Decade Project
                 </Link>
             </h1>
             {TokenService.hasAuthToken() &&
