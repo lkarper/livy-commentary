@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentaryReadSectionView component renders the UI as expected 1`] = `
+<CommentaryReadSectionView
+  section={
+    Object {
+      "comments": Array [],
+      "latin": "",
+      "section_number": "",
+    }
+  }
+>
+  <div
+    className="CommentaryReadSectionView__container"
+  >
+    <h3>
+      Error
+    </h3>
+    <p>
+      Looks like something went wrong; check your connection and try again.
+    </p>
+  </div>
+</CommentaryReadSectionView>
+`;
