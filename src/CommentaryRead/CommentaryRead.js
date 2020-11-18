@@ -103,6 +103,18 @@ const CommentaryRead = (props) => {
         </Link>
     );
 
+    if (bookNotFound || chapterNotFound || sectionNotFound) {
+        return (
+            <section className='CommentaryRead__error section'>
+                <h2>Error</h2>
+                {bookNotFound && <p>We could not find book {bookNumber}.</p>}
+                {chapterNotFound && <p>We could not find chapter {chapterNumber} of book {bookNumber}.</p>}
+                {sectionNotFound && <p>We could not find section {sectionNumber} of chapter {chapterNumber} of book {bookNumber}.</p>}
+                <p>Check the url and your connection and try again.</p>
+            </section>
+        );
+    }
+
     if (book && chapter && section) {
         htmlToDisplay = (
             <section className='CommentaryRead__container section'>
