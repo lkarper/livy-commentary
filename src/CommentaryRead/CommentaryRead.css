@@ -2,6 +2,10 @@
     margin-top: 150px;
 }
 
+.CommentaryRead__loading.p {
+    font-size: 36px;
+}
+
 @media screen and (min-width: 900px) {
     .CommentaryRead__container.section, .CommentaryRead__error {
         margin-top: 250px;

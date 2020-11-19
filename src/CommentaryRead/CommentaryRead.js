@@ -160,8 +160,8 @@ const CommentaryRead = (props) => {
     }
 
     return (
-        <section className='section'>
-            <p>Loading...</p>
+        <section className='CommentaryRead__container section'>
+            <p className="CommentaryRead__loading p">Loading...</p>
         </section>
     );
 }
