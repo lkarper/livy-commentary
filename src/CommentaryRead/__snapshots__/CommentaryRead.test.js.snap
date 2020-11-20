@@ -34,9 +34,11 @@ exports[`CommentaryRead component renders the UI as expected 1`] = `
       }
     >
       <section
-        className="section"
+        className="CommentaryRead__container section"
       >
-        <p>
+        <p
+          className="CommentaryRead__loading p"
+        >
           Loading...
         </p>
       </section>

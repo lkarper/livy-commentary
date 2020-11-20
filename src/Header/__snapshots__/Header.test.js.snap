@@ -30,19 +30,24 @@ exports[`Header component renders the UI as expected 1`] = `
       <header
         className="Header__header"
       >
-        <h1>
+        <h1
+          className="Header__h1"
+        >
           <Link
+            className="Header__h1-a"
             to="/"
           >
             <LinkAnchor
+              className="Header__h1-a"
               href="/"
               navigate={[Function]}
             >
               <a
+                className="Header__h1-a"
                 href="/"
                 onClick={[Function]}
               >
-                Commentarius de bello Punico
+                The Third Decade Project
               </a>
             </LinkAnchor>
           </Link>

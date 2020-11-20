@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddNewBook component renders the UI as expected 1`] = `
-<AddNewBook>
+<AddNewBook
+  nextBook={0}
+  setAddNewBook={[Function]}
+>
   <form
     onSubmit={[Function]}
   >
@@ -14,6 +17,7 @@ exports[`AddNewBook component renders the UI as expected 1`] = `
       id="new-book-number"
       onChange={[Function]}
       type="number"
+      value={0}
     />
     <button
       disabled={true}

@@ -10,7 +10,12 @@ exports[`CommentaryReadComment component renders the UI as expected 1`] = `
   }
 >
   <div>
-    <h3 />
+    <h3
+      className="CommentaryReadComment__h3"
+    >
+      <q />
+    </h3>
+    <p />
   </div>
 </CommentaryReadComment>
 `;

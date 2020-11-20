@@ -33,13 +33,16 @@ exports[`CommentaryHomeSectionLink component renders the UI as expected 1`] = `
     >
       <li>
         <Link
+          className="CommentaryHomeSectionLink__a"
           to="/commentary-read/0"
         >
           <LinkAnchor
+            className="CommentaryHomeSectionLink__a"
             href="/commentary-read/0"
             navigate={[Function]}
           >
             <a
+              className="CommentaryHomeSectionLink__a"
               href="/commentary-read/0"
               onClick={[Function]}
             >
