@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders the UI as expected 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <App>
+      <div
+        className="App"
+      >
+        <Header
+          forceUpdate={[Function]}
+        >
+          <header
+            className="Header__header"
+          >
+            <h1
+              className="Header__h1"
+            >
+              <Link
+                className="Header__h1-a"
+                to="/"
+              >
+                <LinkAnchor
+                  className="Header__h1-a"
+                  href="/"
+                  navigate={[Function]}
+                >
+                  <a
+                    className="Header__h1-a"
+                    href="/"
+                    onClick={[Function]}
+                  >
+                    The Third Decade Project
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </h1>
+          </header>
+        </Header>
+        <main>
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/"
+          >
+            <CommentaryHome
+              history={
+                Object {
+                  "action": "POP",
+                  "block": [Function],
+                  "createHref": [Function],
+                  "go": [Function],
+                  "goBack": [Function],
+                  "goForward": [Function],
+                  "length": 1,
+                  "listen": [Function],
+                  "location": Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  },
+                  "push": [Function],
+                  "replace": [Function],
+                }
+              }
+              location={
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                }
+              }
+              match={
+                Object {
+                  "isExact": true,
+                  "params": Object {},
+                  "path": "/",
+                  "url": "/",
+                }
+              }
+            >
+              <div
+                className="CommentaryHome__book-link-container"
+              >
+                <p
+                  className="CommentaryHome__loading p"
+                >
+                  Loading...
+                </p>
+              </div>
+            </CommentaryHome>
+          </Route>
+          <Route
+            component={[Function]}
+            path="/commentary-read/:location"
+          />
+          <PublicOnlyRoute
+            path="/admin-login"
+            render={[Function]}
+          >
+            <Route
+              path="/admin-login"
+              render={[Function]}
+            />
+          </PublicOnlyRoute>
+          <PrivateRoute
+            component={[Function]}
+            path="/edit"
+          >
+            <Route
+              path="/edit"
+              render={[Function]}
+            />
+          </PrivateRoute>
+        </main>
+      </div>
+    </App>
+  </Router>
+</BrowserRouter>
+`;
