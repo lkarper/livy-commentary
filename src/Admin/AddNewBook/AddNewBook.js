@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import PropTypes from 'prop-types';
 import CommentaryContext from '../../context/CommentaryContext';
 import CommentaryService from '../../services/commentary-service';
 
@@ -38,8 +39,17 @@ const AddNewBook = (props) => {
                 Submit
             </button>
         </form>
-    )
+    );
+}
 
+AddNewBook.defaultProps = {
+    nextBook: 0,
+    setAddNewBook: () => {},
+}
+
+AddNewBook.propTypes = {
+    nextBook: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    setAddNewBook: PropTypes.func,
 }
 
 export default AddNewBook;
