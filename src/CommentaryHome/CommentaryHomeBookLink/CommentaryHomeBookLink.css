@@ -1,0 +1,8 @@
+.CommentaryHomeBookLink__a {
+    color: black;
+    text-decoration: none;
+}
+
+.CommentaryHomeBookLink__a:hover, .CommentaryHomeBookLink__a:focus {
+    text-decoration: underline;
+}

@@ -1,0 +1,8 @@
+.CommentaryHomeSectionLink__a {
+    color: black;
+    text-decoration: none;
+}
+
+.CommentaryHomeSectionLink__a:hover, .CommentaryHomeSectionLink__a:focus {
+    text-decoration: underline;
+}

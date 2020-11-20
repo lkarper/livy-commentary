@@ -1,3 +1,5 @@
+@import url(//db.onlinewebfonts.com/c/ab3994e9faadf598b1e5d39923cf7aaf?family=Linotype+Trajanus);
+
 body {
   margin: 0;
   font-family: trajan-sans-pro;
@@ -16,4 +18,9 @@ html {
 
 h1, h2, h3, h4, h5, h5 {
   font-family: trajan-pro-3;
+}
+
+p {
+  font-family: Linotype Trajanus;
+  font-weight: 200;
 }

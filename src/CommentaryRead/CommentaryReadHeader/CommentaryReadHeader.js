@@ -12,7 +12,8 @@ const CommentaryReadHeader = (props) => {
     } = props;
 
     const bookLink = (
-        <Link 
+        <Link
+            className='CommentaryReadHeader__a' 
             to={`/commentary-read/${bookNumber}`}
         >
             Book {bookNumber}
@@ -21,6 +22,7 @@ const CommentaryReadHeader = (props) => {
 
     const chapterLink = (
         <Link
+            className='CommentaryReadHeader__a'
             to={`/commentary-read/${bookNumber}-${chapterNumber}`}
         >
             Chapter {chapterNumber}

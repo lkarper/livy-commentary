@@ -6,6 +6,15 @@
     font-size: 16px;
 }
 
+.CommentaryReadHeader__a {
+    color: black;
+    text-decoration: none;
+}
+
+.CommentaryReadHeader__a:hover, .CommentaryReadHeader__a:focus {
+    text-decoration: underline;
+}
+
 @media screen and (min-width: 900px) {
     .CommentaryReadHeader__header.widescreen {
         display: inline-block;

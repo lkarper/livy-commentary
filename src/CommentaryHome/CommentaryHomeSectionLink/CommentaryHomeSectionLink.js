@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './CommentaryHomeSectionLink.css';
 
 const CommentaryHomeSectionLink = (props) => {
     const { section } = props;
@@ -8,6 +9,7 @@ const CommentaryHomeSectionLink = (props) => {
     return (
         <li>
             <Link 
+                className='CommentaryHomeSectionLink__a'
                 to={`/commentary-read/${section.section_number}`}
             >
                 §{section.section_number}

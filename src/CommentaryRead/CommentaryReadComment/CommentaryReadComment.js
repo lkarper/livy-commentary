@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
+import './CommentaryReadComment.css';
 
 const CommentaryReadComment = (props) => {
 
@@ -15,8 +16,8 @@ const CommentaryReadComment = (props) => {
 
     return (
         <div>
-            <h3>{comment.tag}</h3>
-            {ReactHtmlParser(comment.comment)}
+            <h3 className='CommentaryReadComment__h3'><q>{comment.tag}</q></h3>
+            <p>{ReactHtmlParser(comment.comment)}</p>
         </div>    
     );
 }

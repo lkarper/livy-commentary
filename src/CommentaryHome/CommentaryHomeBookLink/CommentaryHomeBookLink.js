@@ -18,9 +18,10 @@ const CommentaryHomeBookLink = (props) => {
     }
 
     return (
-        <div className='CommentaryHomeBookLink_book-link-container'>
+        <div className='CommentaryHomeBookLink__book-link-container'>
             <h2>
                 <Link 
+                    className='CommentaryHomeBookLink__a'
                     to={`/commentary-read/${book.book_number}`}
                 >
                     Book {book.book_number}

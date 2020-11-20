@@ -18,9 +18,10 @@ const Header = (props) => {
 
     return (
         <header className='Header__header'>
-            <h1>
+            <h1 className='Header__h1'>
                 <Link
                     to='/'
+                    className='Header__h1-a'
                 >
                     The Third Decade Project
                 </Link>
@@ -28,7 +29,7 @@ const Header = (props) => {
             {TokenService.hasAuthToken() &&
                 <Link
                     to='/'
-                    className="Header__link"
+                    className='Header__link'
                     onClick={handleLogout}
                 >
                     Logout
