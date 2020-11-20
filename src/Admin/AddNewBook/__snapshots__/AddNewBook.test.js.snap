@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddNewBook component renders the UI as expected 1`] = `
+<AddNewBook>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="new-book-number"
+    >
+      New book number: 
+    </label>
+    <input
+      id="new-book-number"
+      onChange={[Function]}
+      type="number"
+    />
+    <button
+      disabled={true}
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</AddNewBook>
+`;
