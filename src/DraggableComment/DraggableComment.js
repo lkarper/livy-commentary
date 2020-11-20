@@ -13,8 +13,8 @@ import { DragSource, DropTarget } from 'react-dnd';
           }))
           return (
             <div ref={elementRef} style={{ opacity }}>
-                <h3>{comment.tag}</h3>
-                {ReactHtmlParser(comment.comment)}
+                <h3><q>{comment.tag}</q></h3>
+                <p>{ReactHtmlParser(comment.comment)}</p>
             </div>
           )
         },
