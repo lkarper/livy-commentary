@@ -1,0 +1,10 @@
+.CommentaryReadNavArrows__arrow.hidden {
+    display: none;
+}
+
+.CommentaryReadNavArrows__outer-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}

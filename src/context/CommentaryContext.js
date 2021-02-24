@@ -3,6 +3,9 @@ import CommentaryService from '../services/commentary-service';
 
 const CommentaryContext = createContext({
     homePageLinkNumbers: [],
+    bookList: [],
+    chapterList: [],
+    sectionList: [],
     addNewBook: () => {},
     removeBook: () => {},
     addNewChapter: () => {},
@@ -18,11 +21,46 @@ export default CommentaryContext;
 export const CommentaryProvider = (props) => {
 
     const [homePageLinkNumbers, setHomePageLinkNumbers] = useState([]);
+    const [bookList, setBookList] = useState([]);
+    const [chapterList, setChapterList] = useState([]);
+    const [sectionList, setSectionList] = useState([]);
 
     useEffect(() => {
         CommentaryService.getHomePageLinkNumbers()
             .then(numbers => {
-                setHomePageLinkNumbers(numbers)
+                const bookListTemp = [];
+                const chapterListTemp = [];
+                const sectionListTemp = [];
+                setHomePageLinkNumbers(numbers);
+                numbers.forEach(book => {
+                    bookListTemp.push(book.book_number);
+                    book.chapters.forEach(chapter => {
+                        chapterListTemp.push(chapter.chapter_number);
+                        chapter.sections.forEach(section => {
+                            sectionListTemp.push(section.section_number);
+                        });
+                    });
+                });
+                setBookList(bookListTemp.sort());
+                setChapterList(chapterListTemp
+                    .map(chap => chap.split('-').join('.'))
+                    .sort((a,b) => parseFloat(a) - parseFloat(b))
+                    .map(chap => chap.toString())
+                    .map(chap => chap.split('.').join('-'))
+                );
+                setSectionList(sectionListTemp
+                    .sort((a,b) => {
+                        const arrayA = a.split('-');
+                        const arrayB = b.split('-');
+                        if (arrayA[0] === arrayB[0]) {
+                            if (arrayA[1] === arrayB[1]) {
+                                return parseInt(arrayA[2]) - parseInt(arrayB[2]);
+                            }
+                            return parseInt(arrayA[1]) - parseInt(arrayB[1]);
+                        }
+                        return parseInt(arrayA[0]) - parseInt(arrayB[0]);
+                    })
+                );
             })
             .catch(error => {
                 console.log(error);
@@ -186,6 +224,9 @@ export const CommentaryProvider = (props) => {
 
     const value = {
         homePageLinkNumbers,
+        bookList,
+        chapterList,
+        sectionList,
         addNewBook,
         removeBook,
         addNewChapter,
@@ -194,6 +235,7 @@ export const CommentaryProvider = (props) => {
         addNewSection,
         updateSection,
         removeSection,
+        
     };
 
     return (

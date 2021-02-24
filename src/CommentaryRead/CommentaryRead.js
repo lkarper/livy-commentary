@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CommentaryReadHeader from './CommentaryReadHeader/CommentaryReadHeader';
+import CommentaryReadNavArrows from './CommentaryReadNavArrows/CommentaryReadNavArrows';
 import CommentaryReadSectionView from './CommentaryReadSectionView/CommentaryReadSectionView';
 import CommentaryReadChapter from './CommentaryReadChapter/CommentaryReadChapter';
 import CommentaryReadNavButtons from './CommentaryReadNavButtons/CommentaryReadNavButtons';
@@ -103,10 +104,22 @@ const CommentaryRead = (props) => {
                     sectionNumber={sectionNumber}
                     suffix='widescreen'
                 />
+                <CommentaryReadNavArrows 
+                    bookNumber={bookNumber}
+                    chapterNumber={chapterNumber}
+                    sectionNumber={sectionNumber}
+                    push={props.history.push}
+                />
                 <CommentaryReadSectionView
                     bookNumber={bookNumber}
                     chapterNumber={chapterNumber} 
                     section={section}   
+                />
+                <CommentaryReadNavArrows 
+                    bookNumber={bookNumber}
+                    chapterNumber={chapterNumber}
+                    sectionNumber={sectionNumber}
+                    push={props.history.push}
                 />
             </section>
         );
@@ -118,10 +131,20 @@ const CommentaryRead = (props) => {
                     chapterNumber={chapterNumber}
                     suffix='widescreen'
                 />
+                <CommentaryReadNavArrows 
+                    bookNumber={bookNumber}
+                    chapterNumber={chapterNumber}
+                    push={props.history.push}
+                />
                 <CommentaryReadChapter 
                     chapter={chapter}
                     bookNumber={bookNumber}
                     chapterNumber={chapterNumber} 
+                />
+                <CommentaryReadNavArrows 
+                    bookNumber={bookNumber}
+                    chapterNumber={chapterNumber}
+                    push={props.history.push}
                 />
             </section>
         );
@@ -132,6 +155,10 @@ const CommentaryRead = (props) => {
                     bookNumber={bookNumber}
                     suffix='widescreen'
                 />
+                <CommentaryReadNavArrows 
+                    bookNumber={bookNumber}
+                    push={props.history.push}
+                />
                 {book.chapters.map(chapter => 
                     <CommentaryReadChapter 
                         key={chapter.chapter_number}
@@ -140,6 +167,10 @@ const CommentaryRead = (props) => {
                         chapterNumber={chapter.chapter_number} 
                     />)
                 }
+                <CommentaryReadNavArrows 
+                    bookNumber={bookNumber}
+                    push={props.history.push}
+                />
             </section>
         );
     }
