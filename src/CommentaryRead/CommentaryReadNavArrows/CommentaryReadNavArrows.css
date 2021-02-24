@@ -8,3 +8,7 @@
     width: 100%;
     justify-content: space-between;
 }
+
+.CommentaryReadNavArrows__outer-container.no-prev {
+    flex-direction: row-reverse;
+}

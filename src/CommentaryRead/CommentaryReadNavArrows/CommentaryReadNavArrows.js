@@ -49,7 +49,7 @@ const CommentaryReadNavArrows = (props) => {
     }
 
     return (
-        <div className="CommentaryReadNavArrows__outer-container">
+        <div className={`CommentaryReadNavArrows__outer-container  ${links.showNext && !links.showPrev ? 'no-prev' : ''}`}>
                 <button
                     className={`CommentaryReadNavArrows__arrow prev ${links.showPrev ? '' : 'hidden'}`}
                     onClick={() => push(links.prev)}
