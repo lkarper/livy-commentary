@@ -24,3 +24,7 @@ p {
   font-family: Linotype Trajanus;
   font-weight: 200;
 }
+
+.hidden {
+  display: none;
+}

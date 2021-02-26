@@ -17,6 +17,9 @@
 
 @media screen and (min-width: 900px) {
     .CommentaryReadHeader__header.widescreen {
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }

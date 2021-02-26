@@ -6,6 +6,8 @@ const CommentaryContext = createContext({
     bookList: [],
     chapterList: [],
     sectionList: [],
+    focusCommentary: false,
+    toggleFocusCommentary: () => {},
     addNewBook: () => {},
     removeBook: () => {},
     addNewChapter: () => {},
@@ -24,6 +26,7 @@ export const CommentaryProvider = (props) => {
     const [bookList, setBookList] = useState([]);
     const [chapterList, setChapterList] = useState([]);
     const [sectionList, setSectionList] = useState([]);
+    const [focusCommentary, toggleFocusCommentary] = useState(false);
 
     useEffect(() => {
         CommentaryService.getHomePageLinkNumbers()
@@ -227,6 +230,7 @@ export const CommentaryProvider = (props) => {
         bookList,
         chapterList,
         sectionList,
+        focusCommentary,
         addNewBook,
         removeBook,
         addNewChapter,
@@ -235,7 +239,7 @@ export const CommentaryProvider = (props) => {
         addNewSection,
         updateSection,
         removeSection,
-        
+        toggleFocusCommentary,
     };
 
     return (

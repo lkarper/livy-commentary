@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import FocusCommentary from '../FocusCommentary/FocusCommentary';
 import './CommentaryReadHeader.css';
 
 const CommentaryReadHeader = (props) => {
@@ -35,6 +36,7 @@ const CommentaryReadHeader = (props) => {
                 className={`CommentaryReadHeader__header ${suffix}`}
             >
                 <h2>{bookLink}{' > '}{chapterLink}{' > '}§{sectionNumber}</h2>
+                <FocusCommentary />
             </header>
         );
     } else if (bookNumber && chapterNumber) {
@@ -43,6 +45,7 @@ const CommentaryReadHeader = (props) => {
                 className={`CommentaryReadHeader__header ${suffix}`}
             >
                 <h2>{bookLink}{' > '}Chapter {chapterNumber}</h2>
+                <FocusCommentary />
             </header>
         );
     }
@@ -52,6 +55,7 @@ const CommentaryReadHeader = (props) => {
             className={`CommentaryReadHeader__header ${suffix}`}
         >
             <h2>Book {bookNumber}</h2>
+            <FocusCommentary />
         </header>
     );
 
