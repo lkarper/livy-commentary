@@ -3,14 +3,18 @@ import { Route } from 'react-router-dom';
 import Header from './Header/Header';
 import CommentaryHome from './CommentaryHome/CommentaryHome';
 import CommentaryRead from './CommentaryRead/CommentaryRead';
+import Maps from './Maps/Maps';
+import About from './About/About';
+import ExternalResources from './ExternalResources/ExternalResources';
+import Glossary from './Glossary/Glossary';
 import IdleService from './services/idle-service';
 import TokenService from './services/token-service';
 import AuthApiService from './services/auth-api-service';
 import AdminLogin from './Admin/AdminLogin/AdminLogin';
 import PublicOnlyRoute from './utils/PublicOnlyRoute';
 import PrivateOnlyRoute from './utils/PrivateOnlyRoute';
-import './App.css';
 import EditPage from './Admin/EditPage/EditPage';
+import './App.css';
 
 const useForceUpdate = () => {
   const [value, setValue] = useState(0); 
@@ -83,6 +87,22 @@ const App = (props) => {
         <Route 
           exact path="/"
           component={CommentaryHome}
+        />
+        <Route 
+          path="/maps"
+          component={Maps}
+        />
+        <Route 
+          path="/about"
+          component={About}
+        />
+        <Route 
+          path="/external-resources"
+          component={ExternalResources}
+        />
+        <Route 
+          path="/glossary"
+          component={Glossary}
         />
         <Route 
           path='/commentary-read/:location'
