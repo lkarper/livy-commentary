@@ -62,7 +62,9 @@ const Header = (props) => {
                 <div
                     className={`Header__mobile-nav-container ${showNav ? 'show' : 'hide'}`}
                 >
-                    <MainNav />
+                    <MainNav 
+                        toggleShowNav={toggleShowNav}
+                    />
                 </div>
             </header>
         </>
