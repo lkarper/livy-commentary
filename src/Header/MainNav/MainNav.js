@@ -11,6 +11,13 @@ const MainNav = (props) => {
             className='MainNav__nav'
         >
             <NavLink
+                to='/commentary-read'
+                className='MainNav__nav-link'
+                onClick={() => toggleShowNav()}
+            >
+                Commentary
+            </NavLink>
+            <NavLink
                 to='/maps'
                 className='MainNav__nav-link'
                 onClick={() => toggleShowNav()}

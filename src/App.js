@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import Header from './Header/Header';
+import Landing from './Landing/Landing';
 import CommentaryHome from './CommentaryHome/CommentaryHome';
 import CommentaryRead from './CommentaryRead/CommentaryRead';
 import Maps from './Maps/Maps';
@@ -86,6 +87,10 @@ const App = (props) => {
       <main>
         <Route 
           exact path="/"
+          component={Landing}
+        />
+        <Route 
+          exact path="/commentary-read"
           component={CommentaryHome}
         />
         <Route 
