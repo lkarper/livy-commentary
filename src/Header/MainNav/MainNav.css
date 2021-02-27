@@ -1,0 +1,14 @@
+.MainNav__nav-link {
+    padding: 0 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.MainNav__nav-link:hover,
+.MainNav__nav-link:focus {
+    text-decoration: underline;
+}
+
+.MainNav__nav-link.active {
+    text-decoration: underline;
+}

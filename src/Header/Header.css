@@ -1,16 +1,61 @@
 .Header__header {
     position: fixed;
-    height: 100px;
     width: 100%;
     background-color: #FFFFF0;
     color: black;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: 0px 1px 5px 0px #B2AEB2;
+}
+
+.Header__header .Header__top-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+}
+
+.Header__mobile-nav-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    height: 100vh;
+    background-color: #FFFFF0;
+    padding-top: 25px;
     box-shadow: 0px 1px 5px 0px #B2AEB2;
+    overflow: hidden;
+}
+
+.Header__mobile-nav-container.hide {
+    width: 0;
+    transition: width 500ms ease-out;
+    -webkit-transition: width 500ms ease-out;
+    -moz-transition: width 500ms ease-out;
+    -o-transition: width 500ms ease-out;
+}
+
+.Header__mobile-nav-container.show {
+    width: 80%;
+    transition: width 500ms ease-in-out;
+    -webkit-transition: width 500ms ease-out;
+    -moz-transition: width 500ms ease-out;
+    -o-transition: width 500ms ease-out;
+}
+
+.Header__mobile-nav-container .MainNav__nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Header__mobile-nav-container .MainNav__nav .MainNav__nav-link {
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.Header__mobile-button {
+    font-size: 20px;
 }
 
 .Header__link, .Header__link:visited {
@@ -28,11 +73,26 @@
 }
 
 .Header__h1 {
-    font-size: 20px;
+    font-size: 18px;
+}
+
+.Header__widescreen-nav-container {
+    display: none;
 }
 
 @media screen and (min-width: 750px) {
     .Header__h1 {
         font-size: 32px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .Header__mobile-nav-container,
+    .Header__mobile-button {
+        display: none;
+    }
+
+    .Header__widescreen-nav-container {
+        display: flex;
     }
 }
