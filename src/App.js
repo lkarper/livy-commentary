@@ -8,6 +8,7 @@ import Maps from './Maps/Maps';
 import About from './About/About';
 import ExternalResources from './ExternalResources/ExternalResources';
 import Glossary from './Glossary/Glossary';
+import Prosopography from './Prosopography/Prosopography';
 import IdleService from './services/idle-service';
 import TokenService from './services/token-service';
 import AuthApiService from './services/auth-api-service';
@@ -108,6 +109,10 @@ const App = (props) => {
         <Route 
           path="/glossary"
           component={Glossary}
+        />
+        <Route 
+          path='/prosopography'
+          component={Prosopography}
         />
         <Route 
           path='/commentary-read/:location'

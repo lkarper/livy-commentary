@@ -32,6 +32,13 @@ const MainNav = (props) => {
                 Glossary
             </NavLink>
             <NavLink
+                to='/prosopography'
+                className='MainNav__nav-link'
+                onClick={() => toggleShowNav()}
+            >
+                Prosopography
+            </NavLink>
+            <NavLink
                 to='/external-resources'
                 className='MainNav__nav-link'
                 onClick={() => toggleShowNav()}

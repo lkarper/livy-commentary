@@ -83,11 +83,11 @@
 
 @media screen and (min-width: 750px) {
     .Header__h1 {
-        font-size: 32px;
+        font-size: 26px;
     }
 }
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 1140px) {
     .Header__mobile-nav-container,
     .Header__mobile-button {
         display: none;
