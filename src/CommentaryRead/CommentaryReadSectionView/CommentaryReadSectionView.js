@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
 import CommentaryReadComment from '../CommentaryReadComment/CommentaryReadComment';
 import CommentaryContext from '../../context/CommentaryContext';
@@ -36,7 +37,7 @@ const CommentaryReadSectionView = (props) => {
                     className={`CommentaryReadSectionView__inner-container`}
                 >
                     <h3>{section.section_number}</h3>
-                    <p>{section.latin}</p>
+                    <p>{ReactHtmlParser(section.latin)}</p>
                 </div>
             </section>
             <section className={`CommentaryReadSectionView__section ${focusCommentary ? 'focused' : ''}`}>

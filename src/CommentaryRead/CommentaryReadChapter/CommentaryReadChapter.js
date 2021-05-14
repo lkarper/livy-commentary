@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactHtmlParser from 'react-html-parser';
 import PropTypes from 'prop-types';
 import CommentaryReadSectionView from '../CommentaryReadSectionView/CommentaryReadSectionView';
 
@@ -8,7 +9,7 @@ const CommentaryReadChapter = (props) => {
    return (
        <>
             <h3>Chapter {chapter.chapter_number.split('-')[1]}: {chapter.chapter_title}</h3>
-            <p>{chapter.chapter_intro}</p>
+            <p>{ReactHtmlParser(chapter.chapter_intro)}</p>
             {chapter.sections.map(section => 
                     <CommentaryReadSectionView 
                         key={section.section_number} 
